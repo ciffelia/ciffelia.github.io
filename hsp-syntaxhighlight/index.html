@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HSP シンタックスハイライトの比較</title>
+  <!-- IE8以前用 html5shiv.js & jQuery 1.x -->
+  <!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <![endif]-->
+  <!-- モダンブラウザ用 jQuery 2.x -->
+  <!--[if (gte IE 9)|!(IE)]><!-->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!--<![endif]-->
+  <!-- Bootstrap(Honoka) -->
+  <link rel="stylesheet" href="honoka/css/bootstrap.min.css">
+  <script src="honoka/js/bootstrap.min.js"></script>
+  <!-- highlight.js -->
+  <link id="hljsthemecss" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+  <script src="highlight.pack.js"></script>
+  <!-- SyntaxHighlighter -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css">
+  <link id="shthemecss" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+  <script src="shBrushHsp.js"></script>
+  <!-- ace -->
+  <script src="ace/ace.js"></script>
+  <!-- フッタースタイル -->
+  <link rel="stylesheet" href="footer.css">
+  <!-- サンプルコードをロード -->
+  <script>
+    $(function() {
+      var editor;
+      $('[data-toggle="popover"]').popover();
+      $('ul.dropdown-menu[aria-labelledby="sh-theme"]>li>a').click(function() {
+        $('#shthemecss').attr('href', '//cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shTheme' + this.innerText + '.min.css');
+      });
+      $('ul.dropdown-menu[aria-labelledby="hljs-theme"]>li>a').click(function() {
+        $('#hljsthemecss').attr('href', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/' + this.innerText.toLowerCase().replace(/ /g, '-') + '.min.css');
+      });
+      $('ul.dropdown-menu[aria-labelledby="ace-theme"]>li>a').click(function() {
+        editor.setTheme(this.dataset.aceTheme);
+      });
+      $('pre.code').load('sample.hsp', function() {
+        hljs.highlightBlock(document.querySelector('pre.highlightjs'));
+        SyntaxHighlighter.all();
+        editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/hsp");
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Google -->
+  
+  <div class="container">
+    <div class="page-header">
+      <h1>HSP シンタックスハイライトの比較</h1>
+    </div>
+  </div>
+  
+  <!-- div.container>h2+pre -->
+  
+  <div class="container">
+    <h2>highlight.js
+      <small>
+        <span class="dropdown">
+          <a id="hljs-theme" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-text-color"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="hljs-theme">
+            <li><a>Default</a></li>
+            <li><a>Agate</a></li>
+            <li><a>Androidstudio</a></li>
+            <li><a>Arta</a></li>
+            <li><a>Ascetic</a></li>
+            <li><a>Atelier Cave Dark</a></li>
+            <li><a>Atelier Cave Light</a></li>
+            <li><a>Atelier Dune Dark</a></li>
+            <li><a>Atelier Dune Light</a></li>
+            <li><a>Atelier Estuary Dark</a></li>
+            <li><a>Atelier Estuary Light</a></li>
+            <li><a>Atelier Forest Dark</a></li>
+            <li><a>Atelier Forest Light</a></li>
+            <li><a>Atelier Heath Dark</a></li>
+            <li><a>Atelier Heath Light</a></li>
+            <li><a>Atelier Lakeside Dark</a></li>
+            <li><a>Atelier Lakeside Light</a></li>
+            <li><a>Atelier Plateau Dark</a></li>
+            <li><a>Atelier Plateau Light</a></li>
+            <li><a>Atelier Savanna Dark</a></li>
+            <li><a>Atelier Savanna Light</a></li>
+            <li><a>Atelier Seaside Dark</a></li>
+            <li><a>Atelier Seaside Light</a></li>
+            <li><a>Atelier Sulphurpool Dark</a></li>
+            <li><a>Atelier Sulphurpool Light</a></li>
+            <li><a>Brown Paper</a></li>
+            <li><a>Codepen Embed</a></li>
+            <li><a>Color Brewer</a></li>
+            <li><a>Dark</a></li>
+            <li><a>Darkula</a></li>
+            <li><a>Docco</a></li>
+            <li><a>Far</a></li>
+            <li><a>Foundation</a></li>
+            <li><a>Github Gist</a></li>
+            <li><a>Github</a></li>
+            <li><a>Googlecode</a></li>
+            <li><a>Grayscale</a></li>
+            <li><a>Hopscotch</a></li>
+            <li><a>Hybrid</a></li>
+            <li><a>Idea</a></li>
+            <li><a>Ir Black</a></li>
+            <li><a>Kimbie Dark</a></li>
+            <li><a>Kimbie Light</a></li>
+            <li><a>Magula</a></li>
+            <li><a>Mono Blue</a></li>
+            <li><a>Monokai Sublime</a></li>
+            <li><a>Monokai</a></li>
+            <li><a>Obsidian</a></li>
+            <li><a>Paraiso Dark</a></li>
+            <li><a>Paraiso Light</a></li>
+            <li><a>Pojoaque</a></li>
+            <li><a>Railscasts</a></li>
+            <li><a>Rainbow</a></li>
+            <li><a>School Book</a></li>
+            <li><a>Solarized Dark</a></li>
+            <li><a>Solarized Light</a></li>
+            <li><a>Sunburst</a></li>
+            <li><a>Tomorrow Night Blue</a></li>
+            <li><a>Tomorrow Night Bright</a></li>
+            <li><a>Tomorrow Night Eighties</a></li>
+            <li><a>Tomorrow Night</a></li>
+            <li><a>Tomorrow</a></li>
+            <li><a>Vs</a></li>
+            <li><a>Xcode</a></li>
+            <li><a>Zenburn</a></li>
+          </ul>
+        </span>
+        <span class="dropdown">
+          <a id="hljs-dl" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-download-alt"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="hljs-dl">
+            <li><a href="https://highlightjs.org/" target="_blank">本体(HSP定義ファイル含む, 公式サイト)</a></li>
+            <li><a href="https://github.com/isagalaev/highlight.js" target="_blank">ソースコード(GitHub)</a></li>
+          </ul>
+        </span>
+      </small>
+    </h2>
+    <pre class="highlightjs code hsp"></pre>
+  </div>
+  
+  <div class="container">
+    <h2>SyntaxHighlighter
+      <small>
+        <span class="dropdown">
+          <a id="sh-theme" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-text-color"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="sh-theme">
+            <li><a>Default</a></li>
+            <li><a>Django</a></li>
+            <li><a>Eclipse</a></li>
+            <li><a>Emacs</a></li>
+            <li><a>FadeToGrey</a></li>
+            <li><a>MDUltra</a></li>
+            <li><a>Midnight</a></li>
+            <li><a>RDark</a></li>
+          </ul>
+        </span>
+        <span class="dropdown">
+          <a id="sh-dl" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-download-alt"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="sh-dl">
+            <li><a href="http://alexgorbatchev.com/SyntaxHighlighter/" target="_blank">本体(公式サイト)</a></li>
+            <li><a href="http://codetter.com/?p=339" target="_blank">HSP用定義ファイル(codetter)</a></li>
+            <li><a href="https://github.com/syntaxhighlighter/syntaxhighlighter" target="_blank">ソースコード(GitHub)</a></li>
+          </ul>
+        </span>
+      </small>
+    </h2>
+    <pre class="code brush:hsp"></pre>
+  </div>
+  
+  <div class="container">
+    <h2>Ace
+      <small>
+        <span class="dropdown">
+          <a id="ace-theme" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-text-color"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="ace-theme">
+              <li class="dropdown-header">Bright</li>
+              <li><a data-ace-theme="ace/theme/chrome">Chrome</a></li>
+              <li><a data-ace-theme="ace/theme/clouds">Clouds</a></li>
+              <li><a data-ace-theme="ace/theme/crimson_editor">Crimson Editor</a></li>
+              <li><a data-ace-theme="ace/theme/dawn">Dawn</a></li>
+              <li><a data-ace-theme="ace/theme/dreamweaver">Dreamweaver</a></li>
+              <li><a data-ace-theme="ace/theme/eclipse">Eclipse</a></li>
+              <li><a data-ace-theme="ace/theme/github">GitHub</a></li>
+              <li><a data-ace-theme="ace/theme/iplastic">IPlastic</a></li>
+              <li><a data-ace-theme="ace/theme/solarized_light">Solarized Light</a></li>
+              <li><a data-ace-theme="ace/theme/textmate">TextMate</a></li>
+              <li><a data-ace-theme="ace/theme/tomorrow">Tomorrow</a></li>
+              <li><a data-ace-theme="ace/theme/xcode">XCode</a></li>
+              <li><a data-ace-theme="ace/theme/kuroir">Kuroir</a></li>
+              <li><a data-ace-theme="ace/theme/katzenmilch">KatzenMilch</a></li>
+              <li><a data-ace-theme="ace/theme/sqlserver">SQL Server</a></li>
+              <li class="dropdown-header">Dark</li>
+              <li><a data-ace-theme="ace/theme/ambiance">Ambiance</a></li>
+              <li><a data-ace-theme="ace/theme/chaos">Chaos</a></li>
+              <li><a data-ace-theme="ace/theme/clouds_midnight">Clouds Midnight</a></li>
+              <li><a data-ace-theme="ace/theme/cobalt">Cobalt</a></li>
+              <li><a data-ace-theme="ace/theme/idle_fingers">idle Fingers</a></li>
+              <li><a data-ace-theme="ace/theme/kr_theme">krTheme</a></li>
+              <li><a data-ace-theme="ace/theme/merbivore">Merbivore</a></li>
+              <li><a data-ace-theme="ace/theme/merbivore_soft">Merbivore Soft</a></li>
+              <li><a data-ace-theme="ace/theme/mono_industrial">Mono Industrial</a></li>
+              <li><a data-ace-theme="ace/theme/monokai">Monokai</a></li>
+              <li><a data-ace-theme="ace/theme/pastel_on_dark">Pastel on dark</a></li>
+              <li><a data-ace-theme="ace/theme/solarized_dark">Solarized Dark</a></li>
+              <li><a data-ace-theme="ace/theme/terminal">Terminal</a></li>
+              <li><a data-ace-theme="ace/theme/tomorrow_night">Tomorrow Night</a></li>
+              <li><a data-ace-theme="ace/theme/tomorrow_night_blue">Tomorrow Night Blue</a></li>
+              <li><a data-ace-theme="ace/theme/tomorrow_night_bright">Tomorrow Night Bright</a></li>
+              <li><a data-ace-theme="ace/theme/tomorrow_night_eighties">Tomorrow Night 80s</a></li>
+              <li><a data-ace-theme="ace/theme/twilight">Twilight</a></li>
+              <li><a data-ace-theme="ace/theme/vibrant_ink">Vibrant Ink</a></li>
+          </ul>
+        </span>
+        <span class="dropdown">
+          <a id="ace-dl" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-download-alt"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="ace-dl">
+            <li><a href="https://github.com/ajaxorg/ace-builds" target="_blank">本体(GitHub)</a></li>
+            <li><a href="https://github.com/zakki/try-hsp/blob/master/ace-builds/src-min-noconflict/mode-hsp.js" target="_blank">HSP用定義ファイル(GitHub)</a></li>
+            <li><a href="https://github.com/ajaxorg/ace" target="_blank">ソースコード(GitHub)</a></li>
+          </ul>
+        </span>
+      </small>
+    </h2>
+    <pre id="editor" class="code" style="height: 300px"></pre>
+  </div>
+
+  <div class="container">
+    <h2>HSP Syntax Highlight
+    <small>
+      <span class="dropdown">
+        <a id="hsh-dl" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="glyphicon glyphicon-download-alt"></i></a>
+        <ul class="dropdown-menu" aria-labelledby="hsh-dl">
+          <li><a href="http://cats.genin.jp/download/tool.html" target="_blank">本体(公式サイト)</a></li>
+        </ul>
+      </span>
+    </small>
+    </h2>
+    <iframe src="hspwebcolor/index.html" style="width: 100%; height: 300px; border: none"></iframe>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p class="text-muted">(c)prince 2015</p>
+    </div>
+  </footer>
+</body>
+</html>

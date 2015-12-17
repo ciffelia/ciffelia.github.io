@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="scripts/shCore.js"></script>
+		<script type="text/javascript" src="scripts/shBrushHSP.js"></script>
+		<link type="text/css" rel="stylesheet" href="styles/shCoreHSP.css"/>
+		<script>
+		// user define
+		SyntaxHighlighter.defaults.wordlist1 = "dispver";
+		SyntaxHighlighter.defaults.wordlist2 = "V_0 V_1";
+		SyntaxHighlighter.defaults.wordlist3 = "count";
+		// highlight
+		SyntaxHighlighter.all();
+		</script>
+		<style type="text/css">
+			.syntaxhighlighter {
+			  overflow-y: hidden !important; /*縦スクロールバー消去*/
+			}
+		</style>
+	</head>
+	<body>
+			<pre class="brush: hsp;">
+/*
+    Sample For HSP Syntax Highlighter
+*/
+
+// constant
+#const V_0 1
+#const V_1 3
+
+// module
+#module "syntax"
+	#deffunc dispver int m, int n, int c
+		mes strf({"%d : HSP Syntax Highlighter
+		 version : %d.%d"}, c, m, n)
+	return 0
+#global
+
+// main
+	count = 0
+	button gosub "Version", *disp
+stop
+
+// display version info
+*disp
+	count++
+	if ( /*count > 5 && */ count < 10 ) {	; condition
+		dispver V_0, V_1, count		; version
+	}
+return
+ 
+</pre>
+	</body>
+</html>
