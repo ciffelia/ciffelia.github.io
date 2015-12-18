@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      pre.hsp {
+        color            : white;
+        background-color : black;
+        border           : 1px double #000000;
+        font-family      : Meiryo,‚l‚r ƒSƒVƒbƒN,monospace;
+        letter-spacing   : 1px;
+        padding          : 3px;
+        margin-right     : 4em;
+        padding          : 0.7em 0.2em;
+      }
+      
+      .hsp .statement { color : #00FFFF; }
+      .hsp .function  { color : #00FFFF; }
+      .hsp .sysvar    { color : #87CEEB; }
+      .hsp .string    { color : #FF8000; }
+      .hsp .preproc   { color : #8080FF; }
+      .hsp .ppword    { color : #C0C0C0; }
+      .hsp .label     { color : #FFFF00; }
+      .hsp .comment   { color : #00FF00; }
+      .hsp .macro     { color : #C0C0C0; }
+      .hsp .char      { color : #EEE8AA; }
+    </style>
+  </head>
+  <body>
+        <pre class="hsp" style="width: 100%"><code><span class="preproc">#include</span> <span class="string">&quot;foo.hsp&quot;</span>
+
+      <span class="comment">// line comment</span>
+      message = <span class="string">&quot;Hello, World!&quot;</span>
+      message2 = <span class="string">{&quot;Multi
+      line
+      string&quot;}</span>
+      num = 0
+      <span class="statement">mes</span> message
+      
+      <span class="statement">input</span> num : <span class="statement">button</span> <span class="string">&quot;sqrt&quot;</span>, <span class="label">*label</span>
+      <span class="statement">stop</span>
+      
+    <span class="label">*label</span>
+      <span class="comment">/*
+       block comment
+      */</span>
+      <span class="statement">if</span>(num &gt;= 0) {
+        <span class="statement">dialog</span> <span class="string">&quot;sqrt(&quot;</span> + num + <span class="string">&quot;) = &quot;</span> + <span class="function">sqrt</span>(num)
+      } <span class="statement">else</span> {
+        <span class="statement">dialog</span> <span class="string">&quot;error&quot;</span>, 1
+      }
+      <span class="statement">stop</span></code></pre>
+  </body>
+</html>
